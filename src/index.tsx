@@ -1,15 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
+
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { AuthProvider, ThemeProvider } from "./contexts";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <ThemeProvider>
+        <App />
+        <Toaster
+          position="top-center"
+          reverseOrder
+          toastOptions={{
+            style: {
+              background: "#27292D",
+              color: "#C5C7CA",
+            },
+            success: {
+              duration: 3000,
+            },
+          }}
+        />
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 
