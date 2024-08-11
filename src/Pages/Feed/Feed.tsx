@@ -53,9 +53,11 @@ const Feed: React.FC = () => {
           loading={creatingPost}
           onCreatePost={handleCreatePost}
         />
+        <Stack className="gap-4">
         {posts.map((post) => (
           <PostCard post={post} key={post.id} isAuthor={post.author.id === user?.id} />
         ))}
+        </Stack>
       </Stack>
     </div>
   );
