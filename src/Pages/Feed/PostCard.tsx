@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Inline, Stack } from "../../components";
+import React from "react";
+import { Inline, Stack } from "../../components";
 import { MenuIcon } from "../../components/Icons";
 import { Post } from "../../types";
 import { formatRelativeTime } from "../../utils";

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import PostCard from "./PostCard";
 import { posts as initialPosts } from "../../constants";
 import CreatePostForm from "./CreatePost";

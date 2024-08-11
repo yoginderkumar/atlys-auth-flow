@@ -1,6 +1,5 @@
 import EmojiPicker from "emoji-picker-react";
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import toast from "react-hot-toast";
 import { Button, Stack } from "../../components";
 import { SpinnerIcon } from "../../components/Icons";
 import { MAX_POST_LENGTH, MIN_POST_LENGTH } from "../../constants";
