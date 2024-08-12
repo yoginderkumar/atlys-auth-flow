@@ -22,12 +22,12 @@ const Button: React.FC<ButtonProps> = ({
     variant === "primary"
       ? `bg-primary text-white ${
           !disabled
-            ? "hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+            ? "hover:bg-blue-600"
             : ""
         }`
       : `bg-gray-200 text-gray-800 ${
           !disabled
-            ? "hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+            ? "hover:bg-gray-300"
             : ""
         }`;
   const widthClass = fullWidth ? "w-full" : "w-fit";

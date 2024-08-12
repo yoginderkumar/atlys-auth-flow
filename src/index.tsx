@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { AuthProvider, ThemeProvider } from "./contexts";
+import { AuthProvider } from "./contexts";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,22 +13,20 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <ThemeProvider>
-        <App />
-        <Toaster
-          position="top-center"
-          reverseOrder
-          toastOptions={{
-            style: {
-              background: "#27292D",
-              color: "#C5C7CA",
-            },
-            success: {
-              duration: 3000,
-            },
-          }}
-        />
-      </ThemeProvider>
+      <App />
+      <Toaster
+        position="top-center"
+        reverseOrder
+        toastOptions={{
+          style: {
+            background: "#27292D",
+            color: "#C5C7CA",
+          },
+          success: {
+            duration: 3000,
+          },
+        }}
+      />
     </AuthProvider>
   </React.StrictMode>
 );

@@ -1,5 +1,5 @@
 import EmojiPicker from "emoji-picker-react";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Button, Stack } from "../../components";
 import { SpinnerIcon } from "../../components/Icons";
 import { MAX_POST_LENGTH, MIN_POST_LENGTH } from "../../constants";
@@ -48,21 +48,17 @@ const CreatePostForm: React.FC<CreatePostFormProps> = ({
       setError("Post content must not exceed 280 characters.");
       return;
     }
+    onCreatePost({ content: { emoji, text: content } });
     setEmoji(default_emoji);
     setContent("");
-    onCreatePost({ content: { emoji, text: content } });
   };
-
-  const emojiButtonWidth = useMemo(() => {
-    return emojiButtonRef.current?.offsetWidth || 0;
-  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack className="bg-secondary border-[2px] border-borders-secondary relative p-6 rounded-lg gap-4">
-        <h2 className="text-lg font-semibold text-text-label">Create post</h2>
+      <Stack className="bg-secondary border-[2px] border-borderLow relative p-6 rounded-lg gap-4">
+        <h2 className="text-lg font-semibold text-textLabel">Create post</h2>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center">
+          <div className="absolute inset-y-2 left-3 top-0 flex items-center">
             <button
               disabled={loading}
               ref={emojiButtonRef}
@@ -84,8 +80,7 @@ const CreatePostForm: React.FC<CreatePostFormProps> = ({
             )}
           </div>
           <textarea
-            className={`w-full bg-tertiary py-2 rounded-md text-text-label focus:outline-none focus:ring-2 focus:ring-blue-500`}
-            style={{ paddingLeft: `calc(${emojiButtonWidth}px + 1.5rem)` }}
+            className={`w-full bg-tertiary py-2 rounded-md text-textLabel focus:outline-none focus:ring-2 focus:ring-blue-500 pl-[72px]`}
             rows={2}
             value={content}
             disabled={loading}

@@ -61,7 +61,7 @@ export const users: User[] = [
     username: "yoginderkumar",
     name: "Yoginder Kumar",
     email: "yoginderkumar2510@gmail.com",
-    password: "test123",
+    password: "password",
     createdAt: new Date("2024-08-07T12:10:45Z"),
   },
 ];

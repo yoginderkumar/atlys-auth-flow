@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import toast from "react-hot-toast";
+
 import PostCard from "./PostCard";
 import { posts as initialPosts } from "../../constants";
 import CreatePostForm from "./CreatePost";
 import { useAuth } from "../../contexts";
 import { Stack } from "../../components";
 import { postService } from "../../services";
-import toast from "react-hot-toast";
 
 const Feed: React.FC = () => {
   const { user } = useAuth();
-  const [posts, setPosts] = useState(initialPosts);
+
+  const [posts, setPosts] = useState(() => initialPosts.reverse());
   const [creatingPost, setCreatingPost] = useState(false);
 
   const handleCreatePost = async ({
@@ -29,7 +31,10 @@ const Feed: React.FC = () => {
       });
       toast.success("You have added a post successfully!");
       setCreatingPost(false);
-      setPosts((prev) => [post, ...prev]);
+      setPosts([
+        post,
+        ...initialPosts.filter((postUpdated) => postUpdated.id !== post.id).reverse(),
+      ]);
     } catch (e) {
       const error = e as Error;
       setCreatingPost(false);
@@ -37,11 +42,15 @@ const Feed: React.FC = () => {
     }
   };
 
+  const filteredPosts = useMemo(() => {
+    return posts.reverse();
+  }, [posts]);
+
   return (
-    <div className="min-h-screen my-20 max-w-2xl mx-auto">
+    <div className="min-h-screen my-20 mx-6 max-w-2xl mx-auto">
       <Stack className="gap-10">
         <Stack className="gap-3">
-          <h1 className="text-3xl text-text-label font-semibold">
+          <h1 className="text-3xl text-textLabel font-semibold">
             Hello {user?.name}
           </h1>
           <p className="text-gray-500">
@@ -54,9 +63,13 @@ const Feed: React.FC = () => {
           onCreatePost={handleCreatePost}
         />
         <Stack className="gap-4">
-        {posts.map((post) => (
-          <PostCard post={post} key={post.id} isAuthor={post.author.id === user?.id} />
-        ))}
+          {posts.map((post) => (
+            <PostCard
+              post={post}
+              key={post.id}
+              isAuthor={post.author.id === user?.id}
+            />
+          ))}
         </Stack>
       </Stack>
     </div>

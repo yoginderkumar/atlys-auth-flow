@@ -7,14 +7,12 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   className?: string;
-  size?: "sm" | "md" | "lg";
 }
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   children,
-  size = "md",
   className = "",
 }) => {
   if (!isOpen) return null;
@@ -24,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
       onClick={onClose}
     >
-      <div className={`modal-border w-full rounded-lg max-w-${size}`}>
+      <div className={`modal-border w-full rounded-lg max-w-lg`}>
         <div
           onClick={(e) => {
             e.stopPropagation();

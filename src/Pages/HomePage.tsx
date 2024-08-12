@@ -40,7 +40,6 @@ const HomePage: React.FC = () => {
         </div>
       )}
       <Modal
-        size="lg"
         isOpen={Boolean(setupType)}
         onClose={() => setSetupType(undefined)}
       >

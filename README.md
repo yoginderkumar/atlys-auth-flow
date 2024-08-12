@@ -1,46 +1,106 @@
-# Getting Started with Create React App
+# Atlys Flowbird
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a mini frontend application built to implement an authentication flow, following a [Design](https://www.figma.com/design/S4bZXDniOieMhyGIpTnVu5/Frontend-Developer%3A-Atlys?node-id=13-10&t=SQLWKMFyiivgKFIi-0) provided via Figma. The focus is on delivering a high-quality user interface with smooth animations, modular and maintainable code, and a seamless user experience.
 
-In the project directory, you can run:
+The application is developed using React with TypeScript to ensure type safety and scalability. TailwindCSS is utilized for styling, allowing for rapid development and adherence to the design specifications. The project emphasizes the importance of clean component API design, responsiveness, and UI state management.
 
-### `npm start`
+## Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[atlys-auth-yogi](https://atlys-auth-yogi.netlify.app)
+Credentials :- 
+- Email :- yoginderkumar2510@gmail.com
+- Password :- password
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **User registration**: User should be able to create new account(Register) if they don't have an account.
+- **User login**: User can login to existing account with the credentials shared above.
+- **Posts**: I You should be able to view/create posts once you have logged in with right credentials.
+- **Responsive design**: I have tried to keep it as responsive as I could (Hope it doesn't break in small screens).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- TypeScript
+- TailwindCSS
+- emoji-picker-react
+- react-hot-toast
+- UUID
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (version 14 or later recommended)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+git clone https://github.com/yoginderkumar/atlys-auth-flow.git
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Navigate to the project directory:
 
-## Learn More
+```
+cd atlys-auth-flow
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm install
+```
+
+## Usage
+
+1. Start the development server:
+
+```
+npm start
+```
+
+2. Open your browser and visit `http://localhost:3000` to access the application.
+
+## Project Structure
+
+- `src/components`: Contains the all UI components for the application.
+  - `Icons.tsx`: Provides all the icons used in the application.
+  - `index.ts`: It is just an exporter for all the components.
+- `src/Auth`: Contains the authentication files.
+  - `LoginForm.tsx`: Holds the logic for login.
+  - `RegisterForm.tsx`: Holds the logic for register.
+- `src/constants`: Contains all the constant data files.
+  - `posts.ts`: Holds all the hard coded posts.
+  - `users.ts`: Holds all the hard coded users.
+- `src/pages`: Contains home page to the auth and feed flow for now.
+- `src/services`: Contains services for API interaction.
+  - `auth.ts`: Defines mock API for the authentication flow.
+  - `posts.tsx`: Defines mock API for the posts flow.
+- `src/types`: Contains types/interfaces for type-safety for the data defined.
+  - `posts.ts`: Provides all the post-related types used.
+  - `auth.ts`: Provides all the post-related types used.
+- `src/context`: Contains contexts for app to be shared.
+  - `Authentication.tsx`: Contains auth context for now to safely emit the the authenticated user.
+
+## Dependencies
+
+The project utilizes the following dependencies:
+
+- `react`: The core React library.
+- `react-dom`: Provides DOM-specific methods for React.
+- `tailwind`: Used for styling components with CSS.
+- `emoji-picker-react`: Used for letting user pick an emoji while creating posts.
+- `uuid`: Used for creating unique IDs for posts and users
+
+
+## Performance Optimizations
+
+To ensure a smooth and responsive user experience, the following performance optimizations have been implemented:
+
+- **Memoization**: Components and functions are memoized using the `memo` higher-order component and the `useMemo` hook, preventing unnecessary re-renders and improving performance.

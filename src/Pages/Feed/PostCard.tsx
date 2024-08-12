@@ -11,7 +11,7 @@ interface PostProps {
 
 const PostCard: React.FC<PostProps> = ({ post, isAuthor }) => {
   return (
-    <Stack className="bg-secondary border-[2px] border-borders-secondary relative p-6 rounded-lg gap-4 transition-colors duration-200">
+    <Stack className="bg-secondary border-[2px] border-borderLow relative p-6 rounded-lg gap-4 transition-colors duration-200">
       <Inline className="justify-between items-center">
         <Inline className="items-center gap-4">
         <img
@@ -20,8 +20,8 @@ const PostCard: React.FC<PostProps> = ({ post, isAuthor }) => {
           width="40px"
         />
         <Stack className="gap-1">
-          <h3 className="text-text-label ">{post.author.name}</h3>
-          <p className="text-sm text-text-textLow">{formatRelativeTime(post?.updatedAt || post.createdAt)}</p>
+          <h3 className="text-textLabel ">{post.author.name} {isAuthor ? "(You)" : ''}</h3>
+          <p className="text-sm text-textLow">{formatRelativeTime(post?.updatedAt || post.createdAt)}</p>
         </Stack>
         </Inline>
         {isAuthor && <MenuIcon cursor='pointer' />}
@@ -32,7 +32,7 @@ const PostCard: React.FC<PostProps> = ({ post, isAuthor }) => {
             <span>{post.content.emoji}</span>
           </div>
         </div>
-        <p className="text-text-textLow dark:text-gray-300 mb-4">
+        <p className="text-textLow mb-4">
           {post.content.text}
         </p>
       </Inline>

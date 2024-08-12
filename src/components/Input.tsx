@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({
     <div className={props.className ? props.className : ""}>
       <div className="flex justify-between items-center mb-1">
         {label && (
-          <label className="block text-sm font-medium text-text-label ">
+          <label className="block text-sm font-medium text-textLabel ">
             {label}
           </label>
         )}
@@ -37,7 +37,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="w-full px-3 py-2 border bg-transparent border-borders-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border bg-transparent border-borderLow rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         {right ? (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 focus:outline-none">
