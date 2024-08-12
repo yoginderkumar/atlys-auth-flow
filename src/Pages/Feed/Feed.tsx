@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 import PostCard from "./PostCard";
@@ -41,10 +41,6 @@ const Feed: React.FC = () => {
       toast.error(error.message || "Something went wrong!");
     }
   };
-
-  const filteredPosts = useMemo(() => {
-    return posts.reverse();
-  }, [posts]);
 
   return (
     <div className="min-h-screen my-20 mx-6 max-w-2xl mx-auto">
